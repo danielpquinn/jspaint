@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Paint</title>
+  <script type="text/javascript" src="app/bower_components/requirejs/require.js" data-main="app/main.js"></script>
+  <script type="text/javascript">
+    window.addEventListener('jspaint:ready', function () {
+      var jspaint = new JSPaint();
+      jspaint.initialize('jspaint');
+    });
+  </script>
+  <style type="text/css">
+    body { background: #ccc; }
+    canvas { background: white; }
+  </style>
+</head>
+<body>
+  <canvas id="jspaint" width="1200" height="800" style="width: 600px; height: 400px;"></canvas>
+  <div id="history-container"></div>
+</body>
+</html>

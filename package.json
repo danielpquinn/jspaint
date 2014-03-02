@@ -1,0 +1,9 @@
+{
+  "name": "jspaint",
+  "dependencies": {
+    "tiny-lr": "0.0.5",
+    "gulp": "~3.5.2",
+    "express": "~3.4.7",
+    "gulp-util": "~2.2.0"
+  }
+}

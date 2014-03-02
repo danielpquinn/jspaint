@@ -1,0 +1,27 @@
+{
+  "name": "jspaint",
+  "version": "0.0.0",
+  "authors": [
+    "Dan Quinn <danthemilk@gmail.com>"
+  ],
+  "description": "JavaScript Paint Application",
+  "main": "js/main.js",
+  "keywords": [
+    "paint",
+    "drawing",
+    "canvas"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.11",
+    "easeljs": "*",
+    "underscore": "~1.6.0"
+  }
+}
