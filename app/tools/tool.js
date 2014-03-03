@@ -1,4 +1,6 @@
-define(function () {
+define([
+  'underscore'
+], function (_) {
   'use strict';
 
   function Tool(app) {}
@@ -6,7 +8,6 @@ define(function () {
   Tool.prototype.initialize = function (app) {
     this.stage = app.stage;
     this.artboard = app.artboard;
-    this.color = '#000';
     
     this.onArtboardMouseDown = this.onArtboardMouseDown.bind(this);
     this.onStageMouseMove = this.onStageMouseMove.bind(this);
@@ -35,10 +36,11 @@ define(function () {
 
   Tool.prototype.removeEventListeners = function () {
     this.artboard.removeEventListener('mousedown', this.onArtboardMouseDown);
+    this.stage.removeEventListener('color selected', this.onColorSelected);
   };
 
   Tool.prototype.onColorSelected = function (e) {
-    this.color = e.target.color;
+    this.options.color = e.target.color;
   };
 
   return Tool;

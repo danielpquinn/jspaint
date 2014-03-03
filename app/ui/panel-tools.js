@@ -22,7 +22,7 @@ define([
     this.buttonPadding = 5;
     this.app = app;
 
-    this.tool = undefined;
+    this.tool = new Pencil(app);
     this.tools = [{
       tool: Pencil,
       name: 'pencil'
@@ -36,8 +36,10 @@ define([
     this.buttonContainer = new createjs.Container();
     this.buttonContainer.x = 5;
     this.buttonContainer.y = 5;
+    this.color = '#000';
 
     this.onButtonMouseDown = this.onButtonMouseDown.bind(this);
+    this.onColorSelected = this.onColorSelected.bind(this);
 
     _.each(this.tools, function (tool, i) {
       var button = new Button({
@@ -49,20 +51,31 @@ define([
       button.addEventListener('mousedown', self.onButtonMouseDown);
     });
 
+    this.app.stage.addEventListener('color selected', this.onColorSelected);
+
     this.addChildToBody(this.buttonContainer);
   };
 
   Tools.prototype.onButtonMouseDown = function (e) {
-    var index = this.buttonContainer.children.indexOf(e.currentTarget);
+    var self = this,
+      index = this.buttonContainer.children.indexOf(e.currentTarget);
 
     if (this.tool) { this.tool.removeEventListeners(); }
 
-    this.tool = new this.tools[index].tool(this.app);
-    console.log(this.tool);
+    this.tool = new this.tools[index].tool(this.app, {
+      color: self.color
+    });
+  };
+
+  Tools.prototype.onColorSelected = function (e) {
+    this.color = e.target.color;
   };
 
   Tools.prototype.unBindEvents = function () {
-    button.removeEventListener('mousedown', self.onButtonMouseDown);
+    _.each(this.buttonContainer.children, function (button) {
+      button.removeEventListener('mousedown', self.onButtonMouseDown);
+    });
+    this.app.stage.removeEventListener('color selected', this.onColorSelected);
   };
 
   return Tools;

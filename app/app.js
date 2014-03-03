@@ -17,8 +17,8 @@ define([
     this.keyboard = new Keyboard();
     this.stage = new createjs.Stage(element);
     this.artboard = new Artboard(this);
-    this.tools = new Tools(this);
     this.swatches = new Swatches(this);
+    this.tools = new Tools(this);
 
     this.stage.canvas.getContext('2d').scale(2, 2);
 
