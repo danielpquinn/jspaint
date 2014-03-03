@@ -4,15 +4,15 @@ define([
 ], function (_, Panel) {
   'use strict';
 
-  function Swatches(stage) {
-    this.initialize(stage);
+  function Swatches(app) {
+    this.initialize(app);
   }
 
   Swatches.prototype = new Panel();
 
   Swatches.prototype.Panel_initialize = Swatches.prototype.initialize;
 
-  Swatches.prototype.initialize = function (stage) {
+  Swatches.prototype.initialize = function (app) {
     var self = this;
     
     this.rows = [
@@ -22,7 +22,7 @@ define([
     this.swatchSize = 20;
     this.swatchPadding = 5;
 
-    this.Panel_initialize(stage, this.rows[0].length * (this.swatchSize + this.swatchPadding) + 5, this.rows.length * (this.swatchSize + this.swatchPadding) + 5);
+    this.Panel_initialize(app, this.rows[0].length * (this.swatchSize + this.swatchPadding) + 5, this.rows.length * (this.swatchSize + this.swatchPadding) + 5);
 
     this.onButtonMouseDown = this.onButtonMouseDown.bind(this);
 

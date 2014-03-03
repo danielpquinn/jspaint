@@ -10,11 +10,12 @@ define([
 
   Panel.prototype.Container_initialize = Panel.prototype.initialize;
 
-  Panel.prototype.initialize = function (stage, width, height) {
+  Panel.prototype.initialize = function (app, width, height) {
     this.Container_initialize();
-    this.stage = stage;
+    this.app = app;
     this.width = width || 80;
     this.height = height || 200;
+    this.setBounds(0, 0, width, height);
     this.offset = [0, 0];
 
     this.handle = new createjs.Shape();
@@ -41,22 +42,22 @@ define([
   };
 
   Panel.prototype.onHandleMouseDown = function (e) {
-    this.stage.addChild(this);
+    this.app.stage.addChild(this);
     this.offset = [e.stageX - this.x, e.stageY - this.y];
-    this.stage.addEventListener('stagemousemove', this.onStageMouseMove);
-    this.stage.addEventListener('stagemouseup', this.onStageMouseUp);
-    this.stage.update();
+    this.app.stage.addEventListener('stagemousemove', this.onStageMouseMove);
+    this.app.stage.addEventListener('stagemouseup', this.onStageMouseUp);
+    this.app.stage.update();
   };
 
   Panel.prototype.onStageMouseMove = function (e) {
     this.x = e.stageX - this.offset[0];
     this.y = e.stageY - this.offset[1];
-    this.stage.update();
+    this.app.stage.update();
   };
 
   Panel.prototype.onStageMouseUp = function (e) {
-    this.stage.removeEventListener('stagemousemove', this.onStageMouseMove);
-    this.stage.removeEventListener('stagemouseup', this.onStageMouseUp);
+    this.app.stage.removeEventListener('stagemousemove', this.onStageMouseMove);
+    this.app.stage.removeEventListener('stagemouseup', this.onStageMouseUp);
   };
 
   Panel.prototype.unBindEvents = function () {
