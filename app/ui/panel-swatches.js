@@ -1,7 +1,8 @@
 define([
   'underscore',
+  'easeljs',
   'ui/panel'
-], function (_, Panel) {
+], function (_, createjs, Panel) {
   'use strict';
 
   function Swatches(app) {
@@ -16,8 +17,12 @@ define([
     var self = this;
     
     this.rows = [
-      ['#000', '#333', '#666', '#999', '#ccc', '#eee', '#fff'],
-      ['#FF0000', '#FF9D00', '#FBFF00', '#00FF19', '#3300FF', '#0073FF', '#AA00FF']
+      [ '#333333', '#424242', '#5A5A5A', '#7B7B7B', '#919191', '#ACACAC', '#C0C0C0', '#CBCBCB', '#D8D8D8', '#E1E0E0' ],
+      [ '#376269', '#3E8A83', '#45B29D', '#8DBC7B', '#D0C55B', '#ECB449', '#E69543', '#E27740', '#E16B44', '#E06047' ],
+      [ '#BAC6B1', '#E2E1C2', '#FDF3CD', '#F0E4C1', '#DED1B0', '#D0C0A0', '#C0AB8C', '#AE9779', '#998268', '#89715B' ],
+      [ '#092E35', '#184140', '#28544B', '#668567', '#A0B381', '#BDC28B', '#E7CF99', '#FFC594', '#FF8A6B', '#FF4138' ],
+      [ '#324245', '#174550', '#024E5D', '#026473', '#037785', '#32949C', '#8ABEB9', '#EAEBDA', '#F2AC91', '#F26E4D' ],
+      [ '#4E3345', '#B24547', '#FB5E55', '#E9837D', '#D1B7B6', '#A7CBCA', '#64CCCA', '#1ECDCA', '#2DB0D3', '#4B85DF' ]
     ];
     this.swatchSize = 20;
     this.swatchPadding = 5;

@@ -15,7 +15,8 @@ define([
   Pencil.prototype.initialize = function (app, options) {
     var defaults = {
       spread: 30,
-      color: '#000'
+      color: '#000',
+      weight: 1
     };
     this.Tool_initialize(app);
     this.options = _.extend(defaults, options);
@@ -23,7 +24,7 @@ define([
 
   Pencil.prototype.onStageMouseMove = function (e) {
     this.midPoint = [this.oldPoint[0] + e.stageX>>1, this.oldPoint[1] + e.stageY>>1];
-    this.artboard.background.graphics.setStrokeStyle(1)
+    this.artboard.background.graphics.setStrokeStyle(this.options.weight)
       .beginStroke(this.options.color)
       .moveTo(this.midPoint[0], this.midPoint[1])
       .curveTo(this.oldPoint[0], this.oldPoint[1], this.oldMidPoint[0], this.oldMidPoint[1]);

@@ -14,7 +14,7 @@ define([
 
   Spraycan.prototype.initialize = function (app, options) {
     var defaults = {
-      spread: 30,
+      weight: 30,
       color: '#000'
     };
 
@@ -26,8 +26,8 @@ define([
     var i = 0;
 
     for(i; i < 10; i += 1) {
-      var xoffset = Math.floor(Math.random() * this.options.spread) - (this.options.spread / 2);
-      var yoffset = Math.floor(Math.random() * this.options.spread) - (this.options.spread / 2);
+      var xoffset = Math.floor(Math.random() * this.options.weight) - (this.options.weight / 2);
+      var yoffset = Math.floor(Math.random() * this.options.weight) - (this.options.weight / 2);
       this.artboard.background.graphics.beginFill(this.options.color).drawCircle(e.stageX + xoffset, e.stageY + yoffset, 1);
     }
 

@@ -13,9 +13,11 @@ define([
     this.onStageMouseMove = this.onStageMouseMove.bind(this);
     this.onStageMouseUp = this.onStageMouseUp.bind(this);
     this.onColorSelected = this.onColorSelected.bind(this);
+    this.onWeightSelected = this.onWeightSelected.bind(this);
 
     this.artboard.addEventListener('mousedown', this.onArtboardMouseDown);
     this.stage.addEventListener('color selected', this.onColorSelected);
+    this.stage.addEventListener('weight selected', this.onWeightSelected);
   };
 
   Tool.prototype.onStageMouseUp = function (e) {
@@ -41,6 +43,10 @@ define([
 
   Tool.prototype.onColorSelected = function (e) {
     this.options.color = e.target.color;
+  };
+
+  Tool.prototype.onWeightSelected = function (e) {
+    this.options.weight = e.target.weight;
   };
 
   return Tool;

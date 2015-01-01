@@ -1,0 +1,9 @@
+{
+  "name": "jspaint",
+  "main": "index.html",
+  "window": {
+    "toolbar": false,
+    "width": 600,
+    "height": 400
+  }
+}
