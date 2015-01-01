@@ -9,6 +9,7 @@ define([
 ], function (_, createjs, Keyboard, Weights, Swatches, Tools, Artboard) {
   'use strict';
 
+
   function App() {}
 
   App.prototype.initialize = function (element) {
